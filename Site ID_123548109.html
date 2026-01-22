@@ -608,6 +608,56 @@
                 <li><strong>KWH Meter:</strong> 2 Unit Terpisah (TSEL & HCPT).</li>
                 <li><strong>Proteksi:</strong> Dilengkapi MCB per tenant dan Surge Arrester.</li>
             </ul>
+
+		 <h3>5.3 Uji Seismik & Parameter Gempa (SNI 1726:2019)</h3>
+            <p>Analisis beban gempa menggunakan data resmi <strong>Desain Spektra Indonesia (Puskim PUPR)</strong> sesuai standar <strong>SNI 1726:2019</strong>. Parameter ini digunakan sebagai beban input (Input Load) dalam analisis struktur.</p>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Nilai</th>
+                            <th>Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>PGA</strong> (Percepatan Tanah Puncak)</td>
+                            <td>0.4736 g</td>
+                            <td>Tingkat guncangan batuan dasar.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>$S_S$</strong> (Periode Pendek 0.2s)</td>
+                            <td>1.0143 g</td>
+                            <td>Faktor respons spektral jangka pendek.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>$S_1$</strong> (Periode 1.0s)</td>
+                            <td>0.4644 g</td>
+                            <td>Faktor respons spektral jangka panjang.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kelas Situs (Site Class)</strong></td>
+                            <td>SD (Tanah Sedang)</td>
+                            <td>Asumsi standar keamanan tanah lunak/sedang.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kategori Desain Seismik (KDS)</strong></td>
+                            <td><strong>D</strong> (Risiko Tinggi)</td>
+                            <td>Struktur didesain untuk zona risiko tinggi.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+	    <div class="map-container">
+                <iframe src="https://rsa.ciptakarya.pu.go.id/2021/index.php?pga=0.4736&ss=1.0143&s1=0.4644&tl=20&kelas=2#grafik&hl=es;z=14&output=embed" loading="lazy" title="Grafik Respon Spektrum"></iframe>
+            </div>
+            <div class="info-box">
+                <strong>KESIMPULAN SEISMIK:</strong><br>
+                Meskipun lokasi site berada pada Kategori Desain Seismik (KDS) D yang memiliki risiko kegempaan cukup tinggi, hasil analisis struktur (Stress Ratio) menunjukkan angka <strong>< 1.0</strong>. <br><br>
+                Hal ini menyatakan bahwa dimensi baja dan pondasi eksisting <strong>MAMPU DAN AMAN</strong> menahan gaya gempa rencana sesuai standar SNI 1726:2019 (Gempa periode ulang 2.500 tahun).
+            </div>
         </section>
 
         <section id="kesimpulan">
@@ -671,25 +721,27 @@
 
     <footer>
         <p>© 2026 PT. Graha Indo Semesta | Laporan Hasil Survey & Investigasi Tower.</p>
-        <p><em>Dokumen ini dikonversi dari Laporan SLF Bangunan Tower Telekomunikasi.</em></p>
-    </footer>
-
-    <script>
-        // Script untuk tombol Back to Top
-        var mybutton = document.getElementById("backToTop");
-        window.onscroll = function() {scrollFunction()};
-        function scrollFunction() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-    </script>
-
+	<a href="mailto:gis@grahaindosemesta.com">Kirim Email</a>
+    <div class="col-sm-12 text-center">
+    <div>
+        <a href='https://www.facebook.com/grahaindosemesta/' class="sosmed mb-2 px-1" target="_blank" rel="noopener">
+            <img src="images/fb-128px.png" class="ml-1" alt="Facebook" width="56" loading="lazy">
+        </a>
+        <a href='https://www.twitter.com/grahaindosemesta' class="sosmed mb-2 px-1" target="_blank" rel="noopener">
+            <img src="images/twitter-x-128px.png" class="ml-1" alt="Twitter/X" width="56" loading="lazy">
+        </a>
+        <a href='https://www.instagram.com/grahaindosemesta/' class="sosmed mb-2 px-1" target="_blank" rel="noopener">
+            <img src="images/ig-128px.png" class="ml-1" alt="Instagram" width="56" loading="lazy">
+        </a>
+        <a href='https://www.youtube.com/channel/grahaindosemesta8Cen_hw_tE3oUg' class="sosmed mb-2 px-1" target="_blank" rel="noopener">
+            <img src="images/yt-128px.png" class="ml-1" alt="Youtube" width="56" loading="lazy">
+        </a>
+        <a href="https://www.tiktok.com/@grahaindosemesta?_t=ZS-8yrzEFvpm0l&_r=1" class="sosmed mb-2 px-1" target="_blank" rel="noopener">
+            <img src="images/tiktok-128px.png" class="ml-1" alt="Tiktok" width="56" loading="lazy">
+        </a>
+    </div>
+    <br />
+</div>
+</script>
 </body>
 </html>
