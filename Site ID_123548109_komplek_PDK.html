@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Laporan Kajian Teknis Kelaikan Tower Telekomunikasi Site ID: 123548109">
+    <title>Laporan Kajian Teknis - Site ID: 123548109 (Komplek PDK)</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f8f9fa;
+            --text-color: #333;
+            --border-color: #dee2e6;
+            --header-bg: #2c3e50;
+            --accent-color: #2196F3;
+            --success-color: #27ae60;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            line-height: 1.2;
+        }
+
+        header .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 1rem 1.2rem;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav ul li a:hover, nav ul li a:active {
+            background-color: #e9ecef;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        /* Main Content */
+        main.container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            scroll-margin-top: 80px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #444;
+            margin-top: 2rem;
+            font-size: 1.4rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        h4 {
+            color: #555;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        /* Document List Styling (Untuk Lampiran) */
+        .doc-list {
+            list-style: none;
+            padding: 0;
+        }
+        .doc-list li {
+            background: #fdfdfd;
+            border-bottom: 1px solid #eee;
+            padding: 10px 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .doc-list li::before {
+            content: "📄";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        .doc-category {
+            background-color: #eee;
+            padding: 8px 15px;
+            font-weight: bold;
+            margin-top: 20px;
+            border-radius: 4px;
+            color: #333;
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            background-color: white;
+        }
+
+        th, td {
+            padding: 14px 16px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        tr:hover {
+            background-color: #eef2f7;
+        }
+
+        /* Info Box */
+        .info-box {
+            background-color: #e7f3fe;
+            border-left: 5px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .status-aman {
+            color: var(--success-color);
+            font-weight: bold;
+            background-color: #d4edda;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* Maps & Iframe Container */
+        .map-container, .doc-container {
+            margin-top: 15px;
+            position: relative;
+            padding-bottom: 56.25%; /* Rasio 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background-color: #eee;
+        }
+
+        .map-container iframe, .doc-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--header-bg);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            border-top: 5px solid var(--accent-color);
+        }
+
+        /* Print Button Style */
+        .print-area {
+            text-align: center;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn {
+            background-color: var(--success-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-blue {
+            background-color: var(--primary-color);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .btn-print:hover {
+            background-color: #219150;
+        }
+
+        /* Back to Top Button */
+        #backToTop {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            transition: background-color 0.3s;
+        }
+
+        #backToTop:hover {
+            background-color: #555;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li a {
+                text-align: center;
+                border-bottom: 1px solid #eee;
+                padding: 1rem;
+            }
+            header h1 {
+                font-size: 1.5rem;
+            }
+            section {
+                padding: 1.5rem;
+            }
+        }
+
+        /* PRINT CONFIGURATION */
+        @media print {
+            nav, .print-area, #backToTop, footer, .btn {
+                display: none !important;
+            }
+
+            body {
+                background-color: white;
+                color: black;
+                font-size: 12pt;
+            }
+
+            main.container {
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            section {
+                box-shadow: none;
+                border: none;
+                margin-bottom: 30px;
+                padding: 0;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            header {
+                background-color: white !important;
+                color: black !important;
+                border-bottom: 2px solid black;
+                padding-bottom: 20px;
+                text-align: left;
+            }
+
+            header .subtitle { color: black !important; }
+            h2, h3, h4 { color: black !important; page-break-after: avoid; }
+            h2 { border-bottom: 2px solid black; }
+
+            .info-box {
+                border: 1px solid #ccc;
+                border-left: 5px solid #666;
+                background-color: #f9f9f9 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            th {
+                background-color: #ddd !important;
+                color: black !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .map-container, .doc-container {
+                border: 1px solid #ccc;
+                page-break-inside: avoid;
+            }
+
+            .doc-list li { border-bottom: 1px solid #ccc; }
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="topFunction()" id="backToTop" title="Kembali ke atas">⬆️</button>
+
+    <header>
+        <h1>Laporan SLF Menara Telekomunikasi</h1>
+        <div class="subtitle">Rekomendasi Laik Fungsi Bangunan Gedung</div>
+        <div class="subtitle" style="margin-top: 10px;">
+            <strong>Site ID:</strong> 123548109  |
+            <strong>Lokasi:</strong> Jl. Pembangunan 1, Bogor Utara
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#pendahuluan">Pendahuluan</a></li>
+            <li><a href="#metodologi">Metodologi</a></li>
+            <li><a href="#arsitektural">Arsitektural</a></li>
+            <li><a href="#struktur">Struktur</a></li>
+            <li><a href="#utilitas">Utilitas</a></li>
+            <li><a href="#kesimpulan">Kesimpulan</a></li>
+            <li><a href="#lampiran">Lampiran</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+
+        <div class="print-area">
+            <button onclick="window.print()" class="btn btn-print">
+                🖨️ Cetak Laporan / Simpan PDF
+            </button>
+        </div>
+
+        <section id="pendahuluan">
+            <h2>BAB I: Pendahuluan</h2>
+
+            <h3>1.1 Pengertian Menara</h3>
+            <p>Menara Jaringan Telekomunikasi adalah menara yang terbuat dari rangkaian besi profil atau pipa baik segi empat atau segitiga, atau hanya berupa pipa panjang (tongkat) yang bertujuan untuk menempatkan antena dan radio pemancar maupun sebagai penerima gelombang telekomunikasi dan informasi.</p>
+
+            <h3>1.1.1 Jenis-jenis Menara</h3>
+            <h4>A. Berdasarkan Lokasi</h4>
+            <ul>
+                <li><strong>Rooftop:</strong> Menara yang berdiri di atas sebuah Gedung.</li>
+                <li><strong>Greenfield:</strong> Menara yang berdiri langsung di atas tanah.</li>
+            </ul>
+
+            <h4>B. Berdasarkan Bentuknya</h4>
+            <ol>
+                <li><strong>Menara Mono Pole (Pipe Tower):</strong> Berupa tiang tunggal atau memiliki satu kaki.</li>
+                <li><strong>Menara 3 Kaki (Triangle Tower):</strong> Berbentuk segi tiga dengan tiga kaki.</li>
+                <li><strong>Menara 4 Kaki (Rectangular Tower):</strong> Berbentuk segi empat dengan empat kaki (Tipe yang digunakan pada site ini).</li>
+            </ol>
+
+            <h3>1.2 Tujuan Kegiatan</h3>
+            <p>Tujuan kegiatan ini adalah untuk mengetahui kondisi riil struktur Menara eksisting melalui pengecekan fisik, survei kemiringan, dan analisis struktur guna penerbitan "Sertifikat Laik Fungsi" (SLF).</p>
+
+            <h3>1.3 Data Lokasi Menara</h3>
+            <div class="info-box">
+                <ul style="list-style: none; padding-left: 0;">
+                    <li><strong>Site ID:</strong> 123548109</li>
+                    <li><strong>Nama Site:</strong> Komplek PDK</li>
+                    <li><strong>Alamat:</strong> Jl. Pembangunan 1 RT 002 RW 009 Kel. Kedung Halang Kec. Kota Bogor Utara, Prov. Jawa Barat</li>
+                    <li><strong>Koordinat Lokasi:</strong> <a href="https://maps.google.com/?q=-6.55494,106.81683" target="_blank" style="color:var(--primary-color)">-6.55494, 106.81683 (Klik untuk Buka)</a></li>
+                    <li><strong>Tinggi Menara:</strong> 36 meter</li>
+                    <li><strong>Tipe Menara:</strong> Greenfield (GF) - 4 Legged</li>
+                </ul>
+                <div class="map-container">
+                    <iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=-6.55494,106.81683&hl=id&z=15&output=embed"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="metodologi">
+            <h2>BAB II: Metodologi Pelaksanaan</h2>
+            <p>Pemeriksaan dilakukan melalui pengamatan visual (Arsitektur, Struktur, ME), Hammer Test (beton), Brinell Test (baja), Uji Torsi (kekencangan baut), dan pengukuran Grounding.</p>
+            <ul>
+                <li><strong>Struktur Beton:</strong> Menggunakan <em>Hammer Test</em> (SNI 03-4430-1997).</li>
+                <li><strong>Kekencangan Baut:</strong> Uji Torsi menggunakan Kunci Torsi (Merek Krisbow).</li>
+                <li><strong>Kemiringan (Verticality):</strong> Menggunakan Theodolit (Merek Topcon Type DT502).</li>
+                <li><strong>Grounding:</strong> Pengecekan tahanan pembumian di setiap kaki menara.</li>
+                <li><strong>Uji Seismik ($V_s$):</strong> Merujuk pada kurva respon spektrum gempa SNI 1726:2019.</li>
+            </ul>
+        </section>
+
+        <section id="arsitektural">
+            <h2>BAB III: Pemeriksaan Arsitektural</h2>
+            <h3>3.1 Luas Lahan & Akses</h3>
+            <p><strong>Luas Lahan:</strong> 10 x 10 = 100 m² (Kondisi Baik).<br>
+            <strong>Akses Jalan:</strong> 36 x 2.60 = 93.60 m² (Kondisi Baik).</p>
+
+            <h3>3.2 Aspek Keselamatan</h3>
+            <ul>
+                <li><strong>Pintu & Pagar:</strong> Memiliki pagar keliling untuk mencegah akses ilegal.</li>
+                <li><strong>Signage K3:</strong> Rambu peringatan bahaya perlu dilengkapi.</li>
+                <li><strong>Pencahayaan:</strong> Menggunakan lampu penerangan tipe PJU.</li>
+            </ul>
+        </section>
+
+        <section id="struktur">
+            <h2>BAB IV: Pemeriksaan Struktur Menara</h2>
+
+            <h3>4.1 Pengamatan Visual & Drawing</h3>
+            <p>Berdasarkan pengamatan visual, struktur menara <strong>tidak mengalami kerusakan</strong> signifikan.</p>
+
+            <div class="doc-container">
+                <iframe src="https://drive.google.com/file/d/1D8QkGK30VUCmQ5-U8opfZ_l2NO__ND55/preview" width="100%" height="500px"></iframe>
+            </div>
+            <div style="text-align:center; margin-top:10px;">
+                <a href="https://drive.google.com/drive/folders/1D8QkGK30VUCmQ5-U8opfZ_l2NO__ND55" target="_blank" class="btn btn-blue" style="font-size:0.8rem; padding:8px 16px;">Buka Folder Dokumen</a>
+            </div>
+
+            <h3>4.2 Hasil Pengujian</h3>
+
+            <h4>A. Hammer Test (Mutu Beton)</h4>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Elemen Struktur</th>
+                            <th>Hasil Uji (MPa)</th>
+                            <th>Standar Rencana</th>
+                            <th>Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Kolom</td><td>22.88</td><td>18.675</td><td>Baik (> K225)</td></tr>
+                        <tr><td>Balok</td><td>21.72</td><td>18.675</td><td>Baik (> K225)</td></tr>
+                        <tr><td>Plat</td><td>23.66</td><td>18.675</td><td>Baik (> K225)</td></tr>
+                        <tr><td><strong>Rerata</strong></td><td><strong>22.75</strong></td><td>-</td><td><strong>Aman</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>B. Verticality (Kemiringan)</h4>
+            <p>Batas toleransi kemiringan (H/500) untuk tinggi menara 36 meter (36.000 mm) adalah <strong>72 mm</strong>.</p>
+            <div class="info-box">
+                Hasil pengukuran kemiringan sisi kiri: <strong>11,0 mm</strong>.<br>
+                Status: <span class="status-aman">AMAN</span> (11,0 mm < 72 mm).
+            </div>
+
+            <h3>4.3 Analisa Struktur</h3>
+            <p>Analisis kekuatan struktur dilakukan sesuai standar yang berlaku (SNI 1727:2020 & SNI 1726:2019).</p>
+
+            <h4>A. Spesifikasi Material</h4>
+            <ul>
+                <li><strong>Profil Siku & Plat Simpul:</strong> Baja SS400 (Standard JIS G3101). Tegangan leleh ($f_y$) = 245 MPa.</li>
+                <li><strong>Profil Pipa (Leg):</strong> Baja ASTM A53 Grade B. Tegangan leleh ($f_y$) = 240 MPa.</li>
+                <li><strong>Baut Sambungan:</strong> Grade 8.8 (High Strength Bolt).</li>
+            </ul>
+
+            <h4>B. Hasil Perhitungan (Stress Ratio)</h4>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Elemen Struktur</th>
+                            <th>Material</th>
+                            <th>Max. Stress Ratio</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Leg (Kaki Utama)</td>
+                            <td>Pipa ASTM A53</td>
+                            <td>0.784</td>
+                            <td><span class="status-aman">AMAN (< 1.0)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Bracing (Pengaku)</td>
+                            <td>Siku SS400</td>
+                            <td>0.652</td>
+                            <td><span class="status-aman">AMAN (< 1.0)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Connection (Baut)</td>
+                            <td>Bolt Gr 8.8</td>
+                            <td>0.540</td>
+                            <td><span class="status-aman">AMAN (< 1.0)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="utilitas">
+            <h2>BAB V: Pemeriksaan Utilitas</h2>
+
+            <h3>5.1 Sistem Proteksi Petir & Grounding</h3>
+            <p>Pemeriksaan mengacu pada standar <strong>SNI 03-7015-2004</strong>, <strong>PUIL 2011</strong>, dan standar Internasional <strong>IEC 62305</strong>.</p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Titik Ukur</th>
+                            <th>Nilai Terukur (Ohm)</th>
+                            <th>Standar PUIL</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Kaki Tower A</td><td>0,82 &Omega;</td><td>< 5 &Omega;</td><td><span class="status-aman">SANGAT BAIK</span></td></tr>
+                        <tr><td>Kaki Tower B</td><td>0,75 &Omega;</td><td>< 5 &Omega;</td><td><span class="status-aman">SANGAT BAIK</span></td></tr>
+                        <tr><td>Kaki Tower C</td><td>0,68 &Omega;</td><td>< 5 &Omega;</td><td><span class="status-aman">SANGAT BAIK</span></td></tr>
+                        <tr><td>Busbar Grounding (Main)</td><td>0,25 &Omega;</td><td>< 1 &Omega; (Telco Std)</td><td><span class="status-aman">EXCELLENT</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>5.2 Sistem Kelistrikan (Power Supply)</h3>
+            <p>Konfigurasi kelistrikan melayani 2 Tenant (Telkomsel & HCPT).</p>
+            <ul>
+                <li><strong>Fase Listrik:</strong> 3 Phase (Terverifikasi).</li>
+                <li><strong>Kabel Feeder:</strong> NYY 4 x 16 mm² (KHA Sangat Mencukupi).</li>
+                <li><strong>KWH Meter:</strong> 2 Unit Terpisah (TSEL & HCPT).</li>
+                <li><strong>Proteksi:</strong> Dilengkapi MCB per tenant dan Surge Arrester.</li>
+            </ul>
+        </section>
+
+        <section id="kesimpulan">
+            <h2>BAB VI: Kesimpulan dan Rekomendasi</h2>
+            <div class="info-box">
+                <p>Berdasarkan hasil investigasi lapangan dan analisis struktur, disimpulkan bahwa Menara Telekomunikasi Site ID 123548109 dalam kondisi <strong class="status-aman">AMAN DAN LAIK FUNGSI</strong>.</p>
+            </div>
+            <ul>
+                <li>Kekuatan beton rerata (22,75 MPa) di atas standar rencana.</li>
+                <li>Sistem grounding sangat baik (< 1 Ohm).</li>
+                <li>Struktur baja (Leg & Bracing) memiliki Stress Ratio < 1.0.</li>
+            </ul>
+        </section>
+
+        <section id="lampiran">
+            <h2>BAB VII: Lampiran Dokumen</h2>
+            <p>Berikut adalah daftar dokumen pendukung legalitas dan teknis:</p>
+
+            <div class="doc-category">1. Dokumen Kepemilikan Lahan & Legalitas</div>
+            <ul class="doc-list">
+                <li>Sertifikat Hak Milik (SHM) No. 914 a.n. Hendra Widjaja (Luas 2168 M²).</li>
+                <li>Surat Keterangan Kepemilikan Tanah (Batas lahan & status tidak sengketa).</li>
+                <li>Surat Keterangan Riwayat Tanah & Surat Pernyataan Pemilik Lahan.</li>
+                <li>Dokumen Identitas (KTP/KK) Pemilik Lahan & Akta Perkawinan.</li>
+            </ul>
+
+            <div class="doc-category">2. Dokumen Perizinan & Persetujuan</div>
+            <ul class="doc-list">
+                <li>Surat Pernyataan Persetujuan Warga/Tetangga.</li>
+                <li>Surat Rekomendasi dari Kelurahan Kedung Halang.</li>
+                <li>Izin Penggunaan Pemanfaatan Tanah (IPPT).</li>
+                <li>Izin Mendirikan Bangunan (IMB) Menara setinggi 36 meter.</li>
+                <li>Surat Keterangan Bebas Banjir.</li>
+            </ul>
+
+            <div class="doc-category">3. Dokumen Komersial & Kontrak</div>
+            <ul class="doc-list">
+                <li>Berita Acara Kesepakatan (BAK) dan Negosiasi (BAN).</li>
+                <li>Perjanjian Sewa Menyewa Lahan (PKS) - Notarized.</li>
+                <li>Salinan Rekening Pembayaran.</li>
+            </ul>
+
+            <div class="doc-category">4. Dokumen Teknis & Konstruksi</div>
+            <ul class="doc-list">
+                <li>Site Investigation Survey Report (SSR).</li>
+                <li>Laporan Hasil Soil Test (Sondir).</li>
+                <li>Sertifikat Concrete Mix Design & Uji Kuat Tekan Beton (Mutu K-225).</li>
+                <li>As-Built Drawing & Wiring Diagram (2 Tenant: TSEL & HCPT).</li>
+                <li>Berita Acara Serah Terima (BAST) Pekerjaan Konstruksi.</li>
+                <li>Tanda Terima Penyerahan Dokumen SITAC.</li>
+            </ul>
+            <div class="doc-container">
+                <iframe src="https://drive.google.com/file/d/1D8QkGK30VUCmQ5-U8opfZ_l2NO__ND55/preview" width="100%" height="500px"></iframe>
+            </div>
+            <div style="text-align:center; margin-top:10px;">
+                <a href="https://drive.google.com/drive/folders/1D8QkGK30VUCmQ5-U8opfZ_l2NO__ND55" target="_blank" class="btn btn-blue" style="font-size:0.8rem; padding:8px 16px;">Buka Folder Dokumen</a>
+            </div>
+       </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 PT. Graha Indo Semesta | Laporan Hasil Survey & Investigasi Tower.</p>
+        <p><em>Dokumen ini dikonversi dari Laporan SLF Bangunan Tower Telekomunikasi.</em></p>
+    </footer>
+
+    <script>
+        // Script untuk tombol Back to Top
+        var mybutton = document.getElementById("backToTop");
+        window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+</body>
+</html>
